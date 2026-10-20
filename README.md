@@ -398,7 +398,7 @@ These are potential future enhancements, not claims about currently implemented 
 
 ## License
 
-No license is specified here. Add a license only after deciding how the project may be used, modified, and redistributed.
+Made for learning purpose only by Debarpan Pal.
 
 ---
 
