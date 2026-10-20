@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-paper text-ink antialiased;
+  background-image:
+    radial-gradient(circle at top right, rgba(79, 70, 229, 0.12), transparent 28%),
+    radial-gradient(circle at 10% 80%, rgba(245, 158, 11, 0.08), transparent 24%);
+}
+
+*:focus-visible {
+  @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-paper;
+}
+
+.card {
+  @apply rounded-2xl border border-stone-200/80 bg-white shadow-card;
+}
