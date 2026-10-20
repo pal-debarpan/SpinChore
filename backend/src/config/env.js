@@ -21,7 +21,13 @@ export function loadEnv(source = process.env) {
 
   return {
     port: Number(source.PORT || 3000),
-    corsOrigin: source.CORS_ORIGIN || "http://localhost:5173",
+    corsOrigin: source.CORS_ORIGIN
+      ? source.CORS_ORIGIN === "*"
+        ? true
+        : source.CORS_ORIGIN
+      : source.VERCEL || source.NODE_ENV === "production"
+      ? true
+      : "http://localhost:5173",
     supabaseUrl: source.SUPABASE_URL || "",
     supabaseServiceRoleKey: source.SUPABASE_SERVICE_ROLE_KEY || "",
     skipDb: optional,

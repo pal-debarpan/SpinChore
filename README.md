@@ -14,6 +14,7 @@ SpinChore helps roommates organize household chores, distribute responsibilities
 - [Getting Started](#getting-started)
 - [Environment Variables](#environment-variables)
 - [Running the Application](#running-the-application)
+- [Deploying to Vercel](#deploying-to-vercel)
 - [API Documentation](#api-documentation)
 - [Database](#database)
 - [Testing](#testing)

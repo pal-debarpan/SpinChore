@@ -18,6 +18,12 @@ describe("health", () => {
     expect(res.status).toBe(200);
     expect(res.body.data.ok).toBe(true);
   });
+
+  it("handles /api/health prefix seamlessly", async () => {
+    const res = await request(app).get("/api/health");
+    expect(res.status).toBe(200);
+    expect(res.body.data.ok).toBe(true);
+  });
 });
 
 describe("roommates", () => {

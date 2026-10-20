@@ -21,6 +21,7 @@ npm-debug.log*
 .vite
 .cache
 .turbo
+.vercel
 
 # OS and editor
 .DS_Store

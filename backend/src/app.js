@@ -17,6 +17,16 @@ export function createApp({ db, corsOrigin, rngFactory } = {}) {
   app.use(cors({ origin: corsOrigin || true }));
   app.use(express.json({ limit: "100kb" }));
 
+  // Normalize /api prefix if present (e.g. Vercel serverless function or reverse proxy)
+  app.use((req, res, next) => {
+    if (req.url.startsWith("/api/")) {
+      req.url = req.url.slice(4);
+    } else if (req.url === "/api" || req.url.startsWith("/api?")) {
+      req.url = req.url.replace(/^\/api/, "") || "/";
+    }
+    next();
+  });
+
   app.get("/health", (_req, res) => {
     res.json({
       data: { ok: true, service: "spinchore-api" },

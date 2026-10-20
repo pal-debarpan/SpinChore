@@ -1,6 +1,11 @@
 {
   "name": "spinchore",
   "private": true,
+  "type": "module",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
     "dev:backend": "npm --prefix backend run dev",
     "dev:frontend": "npm --prefix frontend run dev",
@@ -8,5 +13,14 @@
     "test:backend": "npm --prefix backend test",
     "test:frontend": "npm --prefix frontend test",
     "build": "npm --prefix frontend run build"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=18.x"
   }
 }
