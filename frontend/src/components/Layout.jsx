@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { CalendarCheck, History, Home, Menu, Sparkles, Users, X, ListChecks } from "lucide-react";
+import { History, Home, Menu, Sparkles, Users, X, ListChecks } from "lucide-react";
 
 const links = [
   { to: "/", label: "Dashboard", icon: Home },
@@ -9,6 +9,14 @@ const links = [
   { to: "/chores", label: "Chores", icon: ListChecks },
   { to: "/history", label: "History", icon: History },
 ];
+
+function BrandLogo({ className = "" }) {
+  return (
+    <span className={`grid shrink-0 place-items-center overflow-hidden rounded-2xl bg-white ${className}`}>
+      <img src="/logo.png" alt="SpinChore logo" className="h-full w-full scale-[2.35] object-contain" />
+    </span>
+  );
+}
 
 function NavItems({ onNavigate }) {
   return (
@@ -43,9 +51,7 @@ export function Layout() {
     <div className="min-h-screen lg:grid lg:grid-cols-[16.5rem_1fr]">
       <aside className="hidden bg-[#1c1917] p-5 text-white lg:flex lg:flex-col">
         <div className="mb-8 flex items-center gap-3">
-          <span className="grid h-11 w-11 place-items-center rounded-2xl bg-brand-500">
-            <CalendarCheck className="h-5 w-5" />
-          </span>
+          <BrandLogo className="h-11 w-11" />
           <div>
             <p className="font-display text-2xl leading-none">SpinChore</p>
             <p className="text-xs text-stone-400">Fair weekly household spins</p>
@@ -60,9 +66,7 @@ export function Layout() {
       <div className="flex min-h-screen flex-col">
         <header className="flex items-center justify-between border-b border-stone-200 bg-white/70 px-4 py-3 backdrop-blur lg:hidden">
           <div className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-500 text-white">
-              <CalendarCheck className="h-4 w-4" />
-            </span>
+            <BrandLogo className="h-9 w-9 rounded-xl" />
             <span className="font-display text-xl">SpinChore</span>
           </div>
           <button
@@ -79,7 +83,10 @@ export function Layout() {
           <div className="fixed inset-0 z-40 bg-stone-900/50 lg:hidden">
             <div className="h-full w-72 bg-[#1c1917] p-4 text-white">
               <div className="mb-6 flex items-center justify-between">
-                <span className="font-display text-xl">SpinChore</span>
+                <div className="flex items-center gap-2">
+                  <BrandLogo className="h-9 w-9 rounded-xl" />
+                  <span className="font-display text-xl">SpinChore</span>
+                </div>
                 <button type="button" onClick={() => setOpen(false)} aria-label="Close navigation">
                   <X className="h-5 w-5" />
                 </button>
